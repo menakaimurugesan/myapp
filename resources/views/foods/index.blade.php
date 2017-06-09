@@ -79,12 +79,27 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Tiny Magiq
+                    Foods
                 </div>
-
-                <div class="links">
-                    <a href="{{ url('/food') }}">Foods</a>
-                </div>
+                @if (isset($foods))
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                    <tbody>
+                    @foreach($foods as $food)
+                        <tr>
+                            <td>{{ $food->name }}</td>
+                            <td>{{ $food->price}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @endif
+        
             </div>
         </div>
     </body>
